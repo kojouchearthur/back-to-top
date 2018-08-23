@@ -1,0 +1,51 @@
+<style>
+#ttop{
+	display: none;
+	background-color: white;
+	color: #333;
+	font-size: 12px;
+	z-index: 99;
+	position: fixed;
+	outline: none;
+	border: none;
+	border-radius: 8px;
+	padding: 8px 18px;
+	right: 30px;
+	bottom: 30px;
+	cursor: pointer;
+}
+#ttop i{
+  font-size:25px;
+}
+#ttop:hover{
+	background-color:;
+	opacity: 0.5;
+}
+</style>
+
+<!--the back to top button element-->
+<button id="ttop" title="Top of Page">
+<span><i class="fa fa-arrow-up"></i></span><br>Top
+</button>
+
+
+<!--javascript controlling the back to top button-->
+<script>
+document.getElementById('ttop').onclick=backTop;
+window.onscroll = function(){uiScroll()};
+
+//monitor distance (in pixels) scrolled before back to top button becomes visible
+function uiScroll(){
+	if(document.body.scrollTop > 20 || document.documentElement.scrollTop > 20){
+		document.getElementById("ttop").style.display = "block";
+	}
+	else{
+		document.getElementById("ttop").style.display = "none";
+	}
+}
+
+function backTop(){
+	document.body.scrollTop = 0;
+	document.documentElement.scrollTop = 0;
+}
+</script>
